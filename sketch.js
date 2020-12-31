@@ -11,11 +11,14 @@ var bird, slingshot;
 var gameState = "onSling";
 var bg = "sprites/bg1.png";
 var score = 0;
+var bgImg;
 
 var bird_flying, bird_select, pig_snort
 
 function preload() {
     getBackgroundImg();
+
+    bgImg = loadImage("sprites/bg1.png")
 
 
 
@@ -57,13 +60,23 @@ function setup(){
 }
 
 function draw(){
-    if(backgroundImg)
+
+    if(backgroundImg){
         background(backgroundImg);
     
         noStroke();
         textSize(35)
         fill("white")
-        text("Score  " + score, width-300, 50)
+        text("Score  " + score, width-300, 50);
+    }
+    else {
+        background(bgImg);
+        
+        noStroke();
+        textSize(35)
+        fill("white")
+        text("Score  " + score, width-300, 50);
+    }
     
     Engine.update(engine);
     //strokeWeight(4);
